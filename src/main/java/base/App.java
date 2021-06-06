@@ -1,4 +1,8 @@
 package base;
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 /*
  *  UCF COP3330 Summer 2021 Assignment 1 Solution
  *  Copyright 2021 Scott Matson
@@ -33,4 +37,18 @@ Challenges
 -Wire up your application to an external API that provides the current exchange rates.
  */
 public class App {
+    public static void main(String[] args) {
+        Scanner ui = new Scanner(System.in);
+
+        System.out.print("How many euros are you exchanging? ");
+        double c_from = ui.nextDouble();
+        System.out.print("What is the exchange rate? ");
+        double rate = ui.nextDouble();
+
+        double c_to = rate * c_from;
+
+        DecimalFormat df = new DecimalFormat("###.00");
+
+        System.out.println(c_from + " euros at an exchange rate of " + rate + " is\n" + df.format(c_to) + " U.S. dollars");
+    }
 }
